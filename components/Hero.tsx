@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useReveal } from "@/hooks/useReveal";
 
 export default function Hero() {
@@ -24,9 +25,9 @@ export default function Hero() {
         <p className="hero__subtitle">
           Modern Fully-Serviced Office Spaces for Productive Time to be Spent
         </p>
-        <a href="/contact" className="btn btn--outline hero__cta">
+        <Link href="/contact" className="btn btn--outline hero__cta">
           Contact Us
-        </a>
+        </Link>
       </div>
     </section>
   );

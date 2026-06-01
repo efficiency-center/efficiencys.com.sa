@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { withBasePath } from "@/lib/paths";
 import { useReveal } from "@/hooks/useReveal";
 
 export default function About() {
@@ -17,7 +18,7 @@ export default function About() {
             suit all businesses. We help you be efficient by providing your business with the proper
             place to get things done.
           </p>
-          <a href="/assets/docs/our-profile.pdf" className="link-accent" download>
+          <a href={withBasePath("/assets/docs/our-profile.pdf")} className="link-accent" download>
             Our Profile
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M7 17L17 7M17 7H7M17 7V17" />

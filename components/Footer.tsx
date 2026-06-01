@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CONTACT, OFFICES } from "@/lib/constants";
+import { withBasePath } from "@/lib/paths";
 import Logo from "@/components/Logo";
 
 type FooterLink = { href: string; label: string; download?: boolean };
@@ -65,7 +66,10 @@ export default function Footer() {
               <ul>
                 {FOOTER_LINKS.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} {...(link.download ? { download: true } : {})}>
+                    <a
+                      href={link.href.startsWith("/assets") ? withBasePath(link.href) : link.href}
+                      {...(link.download ? { download: true } : {})}
+                    >
                       {link.label}
                     </a>
                   </li>

@@ -17,6 +17,23 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## GitHub Pages
+
+The live site is at [https://6degrees.github.io/Efficiency-Center-Website/](https://6degrees.github.io/Efficiency-Center-Website/).
+
+GitHub Pages only serves **built static files**. If you see the README instead of the website, Pages was not deploying the Next.js build yet.
+
+1. In the repo on GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**
+2. Push to `main` — the workflow in `.github/workflows/deploy-pages.yml` builds and deploys the site automatically.
+
+Local test of the Pages build:
+
+```bash
+npm run build:pages
+```
+
+Output is in the `out/` folder.
+
 ## Location map
 
 The **Find Us** section uses open-source tiles from OpenFreeMap (dark style) with MapLibre GL for 3D building extrusions. There is nothing to configure — no `.env` keys required.
