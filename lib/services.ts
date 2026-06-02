@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/paths";
+
 export type Service = {
   num: string;
   slug: string;
@@ -84,5 +86,7 @@ export const SERVICES: Service[] = [
 ];
 
 export function getServiceImage(service: Service): string {
-  return service.image ?? `/assets/imgs/services/${service.slug}.png`;
+  const path = service.image ?? `/assets/imgs/services/${service.slug}.png`;
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  return withBasePath(path);
 }
