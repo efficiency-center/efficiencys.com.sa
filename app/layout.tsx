@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Libre_Baskerville, Space_Grotesk } from "next/font/google";
+import { withBasePath } from "@/lib/paths";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,8 +28,8 @@ export const metadata: Metadata = {
   description:
     "Modern fully-serviced office spaces in Al-Khobar, Saudi Arabia. Coworking, private offices, and meeting rooms at Corniche Park.",
   icons: {
-    icon: "/assets/imgs/logo.png",
-    apple: "/assets/imgs/logo.png",
+    icon: withBasePath("/assets/imgs/logo.png"),
+    apple: withBasePath("/assets/imgs/logo.png"),
   },
 };
 

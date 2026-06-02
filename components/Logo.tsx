@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/paths";
 
-const LOGO_SRC = "/assets/imgs/logo.png";
+const LOGO_SRC = withBasePath("/assets/imgs/logo.png");
 const LOGO_ALT = "Efficiency Center — مركز الكفاءة";
 
 type LogoProps = {
