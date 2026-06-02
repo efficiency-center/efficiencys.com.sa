@@ -22,7 +22,7 @@ export default function Hero() {
         />
         <div className="hero__overlay" />
       </div>
-      <div className={`container hero__content ${className}`} ref={ref}>
+      <div className={`hero__content ${className}`} ref={ref}>
         <h1 className="hero__title">Your Hike to Peak</h1>
         <p className="hero__subtitle">
           Modern Fully-Serviced Office Spaces for Productive Time to be Spent

@@ -48,6 +48,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const showNavbarCta = pathname !== "/" || activeId !== "home";
 
   return (
     <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`} id="navbar">
@@ -81,7 +82,13 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Link href="/contact" className="btn btn--accent navbar__cta" onClick={closeMenu}>
+          <Link
+            href="/contact"
+            className={`btn btn--accent navbar__cta ${showNavbarCta ? "" : "navbar__cta--hidden"}`}
+            onClick={closeMenu}
+            aria-hidden={!showNavbarCta}
+            tabIndex={showNavbarCta ? 0 : -1}
+          >
             Contact Us
           </Link>
         </nav>

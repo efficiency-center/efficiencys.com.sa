@@ -151,18 +151,20 @@ ul {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(12px);
+  background: transparent;
+  backdrop-filter: none;
   border-bottom: 1px solid transparent;
-  transition: border-color var(--transition), background var(--transition);
+  transition: border-color var(--transition), background var(--transition), backdrop-filter var(--transition);
 }
 
 .navbar--scrolled {
   border-bottom-color: var(--border);
   background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
 }
 
 .navbar__inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -193,9 +195,14 @@ ul {
   display: flex;
   align-items: center;
   gap: 2.5rem;
+  margin-left: auto;
 }
 
 .navbar__links {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   gap: 2rem;
 }
@@ -217,6 +224,13 @@ ul {
 .navbar__cta {
   padding: 0.625rem 1.25rem;
   font-size: 0.6875rem;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.navbar__cta--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
 }
 
 .navbar__toggle {
@@ -285,6 +299,12 @@ ul {
 .hero__content {
   position: relative;
   z-index: 1;
+  width: min(1200px, 92vw);
+  margin-inline: auto;
+  max-width: min(1200px, 92vw);
+}
+
+.hero__content > * {
   max-width: 52rem;
 }
 
@@ -1267,6 +1287,10 @@ ul {
   }
 
   .navbar__links {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
     flex-direction: column;
     gap: 1.5rem;
   }
