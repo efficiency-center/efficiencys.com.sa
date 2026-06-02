@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useReveal } from "@/hooks/useReveal";
+import { withBasePath } from "@/lib/paths";
 
 export default function Hero() {
   const { ref, className } = useReveal();
@@ -10,13 +10,15 @@ export default function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero__bg">
-        <Image
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80"
-          alt="Modern office workspace"
+        <video
           className="hero__img"
-          fill
-          priority
-          sizes="100vw"
+          src={withBasePath("/assets/video/hero.mp4")}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="Efficiency Center hero background video"
         />
         <div className="hero__overlay" />
       </div>

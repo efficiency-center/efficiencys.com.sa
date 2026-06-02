@@ -181,10 +181,10 @@
   margin-top: 1.25rem;
   width: 100%;
   padding: 1rem 1.5rem;
-  border: none;
+  border: 1px solid #fff;
   border-radius: 2rem;
-  background: #f3f1eb;
-  color: var(--navy);
+  background: #fff;
+  color: #0a0a0a;
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 600;
@@ -194,11 +194,16 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  transition: background 0.25s ease, transform 0.2s ease;
+  transition:
+    color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s ease;
 }
 
 .contact-form__submit:hover {
-  background: #fff;
+  background: transparent;
+  color: #fff;
 }
 
 .contact-form__submit:active {
