@@ -31,7 +31,7 @@ export default function Partners() {
   return (
     <section className="section partners" id="partners">
       <div className="container">
-        <div className={intro.className} ref={intro.ref}>
+        <div className={`partners__intro ${intro.className}`} ref={intro.ref}>
           <h2 className="section-heading">Success Partners</h2>
           <p className="partners__subtext">
             Get unlimited offers from our success partners once you get your office!
