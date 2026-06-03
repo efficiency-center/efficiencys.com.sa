@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { withBasePath } from "@/lib/paths";
 
 const LOGO_SRC = withBasePath("/assets/imgs/logo.png");
@@ -11,13 +10,15 @@ type LogoProps = {
 
 export default function Logo({ variant = "navbar", priority = false }: LogoProps) {
   return (
-    <Image
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       src={LOGO_SRC}
       alt={LOGO_ALT}
       width={215}
       height={150}
       className={`site-logo site-logo--${variant}`}
-      priority={priority}
+      decoding="async"
+      fetchPriority={priority ? "high" : "auto"}
     />
   );
 }

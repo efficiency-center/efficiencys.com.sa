@@ -1,11 +1,11 @@
-/* Contact page — dark navy, Regus-inspired lead form */
+/* Contact page — light theme lead form */
 
 .contact-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--navy);
-  color: #f5f5f5;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .contact-page__header {
@@ -18,12 +18,12 @@
   margin-inline: auto;
   padding-inline: 4vw;
   font-size: 0.8125rem;
-  color: rgba(245, 245, 245, 0.55);
+  color: var(--text-muted);
   transition: color 0.25s ease;
 }
 
 .contact-page__back:hover {
-  color: #f5f5f5;
+  color: var(--text);
 }
 
 .contact-page__main {
@@ -51,19 +51,20 @@
 }
 
 .contact-form__title {
-  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 4.5vw, 2.375rem);
-  font-weight: 400;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  color: #fff;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
   margin-bottom: 1rem;
 }
 
 .contact-form__subtitle {
   font-size: 0.9375rem;
   line-height: 1.55;
-  color: rgba(245, 245, 245, 0.72);
+  color: var(--text-muted);
   margin-bottom: 2.25rem;
   max-width: 22rem;
   margin-inline: auto;
@@ -83,7 +84,7 @@
   align-items: center;
   column-gap: 0.75rem;
   padding: 0.875rem 1.125rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--border-strong);
   border-radius: 0.65rem;
   background: transparent;
   cursor: text;
@@ -91,14 +92,14 @@
 }
 
 .contact-field:focus-within {
-  border-color: rgba(255, 255, 255, 0.65);
+  border-color: var(--accent);
 }
 
 .contact-field__icon {
   grid-row: span 2;
   display: flex;
   align-items: center;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-muted);
 }
 
 .contact-field__icon svg {
@@ -111,7 +112,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-dim);
 }
 
 .contact-field__input {
@@ -121,13 +122,13 @@
   background: transparent;
   font-family: var(--font-body);
   font-size: 1rem;
-  color: #fff;
+  color: var(--text);
   outline: none;
   padding: 0;
 }
 
 .contact-field__input::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-dim);
 }
 
 .contact-field--phone {
@@ -149,7 +150,7 @@
 .contact-field__prefix {
   grid-row: span 2;
   font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
@@ -162,29 +163,29 @@
 .contact-form__privacy {
   margin-top: 0.5rem;
   font-size: 0.8125rem;
-  color: rgba(245, 245, 245, 0.65);
+  color: var(--text-muted);
   text-align: center;
   line-height: 1.5;
 }
 
 .contact-form__privacy a {
-  color: #fff;
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .contact-form__privacy a:hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--accent-hover);
 }
 
 .contact-form__submit {
   margin-top: 1.25rem;
   width: 100%;
   padding: 1rem 1.5rem;
-  border: 1px solid #fff;
+  border: 1px solid var(--accent);
   border-radius: 2rem;
-  background: #fff;
-  color: #0a0a0a;
+  background: var(--accent);
+  color: #fff;
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 600;
@@ -202,7 +203,7 @@
 }
 
 .contact-form__submit:hover {
-  background: transparent;
+  background: var(--accent-hover);
   color: #fff;
 }
 
@@ -212,9 +213,9 @@
 
 .contact-form__success {
   padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid var(--border);
   border-radius: 0.65rem;
   font-size: 1rem;
-  color: rgba(245, 245, 245, 0.9);
+  color: var(--text-muted);
   line-height: 1.6;
 }

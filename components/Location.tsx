@@ -18,8 +18,9 @@ export default function Location() {
 
   return (
     <section className="section location" id="location">
-      <div className="container">
-        <div className={`location__header ${header.className}`} ref={header.ref}>
+      <div className="location__band">
+        <div className="container">
+          <div className={`location__header ${header.className}`} ref={header.ref}>
           <div className="location__copy">
             <h2 className="section-heading">Find Us</h2>
             <div className="location__tabs" role="tablist" aria-label="Office locations">
@@ -56,9 +57,11 @@ export default function Location() {
           <p className="location__hint">
             Two locations across Saudi Arabia — switch branches above and explore in 3D.
           </p>
-        </div>
-        <div className={`location__map-wrap ${map.className} reveal--delay`} ref={map.ref}>
-          <LocationMap key={office.id} office={office} />
+          </div>
+
+          <div className={`location__map-wrap ${map.className} reveal--delay`} ref={map.ref}>
+            <LocationMap key={office.id} office={office} />
+          </div>
         </div>
       </div>
     </section>

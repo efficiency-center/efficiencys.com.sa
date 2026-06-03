@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS } from "@/lib/data";
 import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const [onHero, setOnHero] = useState(pathname === "/");
   const [activeId, setActiveId] = useState("home");
+  const lastScrollY = useRef(0);
 
   const sectionHref = (href: string) => {
     if (href === "#home") return "/";
@@ -18,11 +20,56 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setOnHero(false);
+      return;
+    }
+
+    const hero = document.getElementById("home");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setOnHero(entry.isIntersecting),
+      { threshold: 0, rootMargin: "-72px 0px 0px 0px" }
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastScrollY.current;
+
+      if (y < 72) {
+        setNavHidden(false);
+      } else if (delta > 6) {
+        setNavHidden(true);
+        setMenuOpen(false);
+      } else if (delta < -6) {
+        setNavHidden(false);
+      }
+
+      lastScrollY.current = y;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
     if (pathname !== "/") return;
 
     const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-
       const sections = document.querySelectorAll<HTMLElement>("section[id]");
       const scrollPos = window.scrollY + 120;
       let current = "home";
@@ -40,22 +87,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [pathname]);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
-
   const closeMenu = () => setMenuOpen(false);
-  const showNavbarCta = pathname !== "/" || activeId !== "home";
 
   return (
-    <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`} id="navbar">
+    <header
+      className={`navbar ${onHero ? "navbar--hero" : "navbar--page"}`}
+      id="navbar"
+    >
       <div className="container navbar__inner">
-        <Link href="/" className="navbar__logo" onClick={closeMenu} aria-label="Efficiency Center — Home">
+        <Link href="/" className="navbar__logo" aria-label="Efficiency Center — Home">
           <Logo variant="navbar" priority />
         </Link>
+
         <button
           type="button"
           className={`navbar__toggle ${menuOpen ? "is-open" : ""}`}
@@ -66,8 +109,13 @@ export default function Navbar() {
           <span />
           <span />
         </button>
-        <nav className={`navbar__nav ${menuOpen ? "is-open" : ""}`} id="navMenu">
-          <ul className="navbar__links">
+
+        <nav
+          className={`navbar__nav ${navHidden ? "is-hidden" : ""} ${menuOpen ? "is-open" : ""}`}
+          id="navMenu"
+          aria-hidden={navHidden && !menuOpen}
+        >
+          <ul className={`navbar__links ${navHidden ? "is-hidden" : ""}`}>
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
@@ -82,15 +130,6 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/contact"
-            className={`btn btn--accent navbar__cta ${showNavbarCta ? "" : "navbar__cta--hidden"}`}
-            onClick={closeMenu}
-            aria-hidden={!showNavbarCta}
-            tabIndex={showNavbarCta ? 0 : -1}
-          >
-            Contact Us
-          </Link>
         </nav>
       </div>
     </header>

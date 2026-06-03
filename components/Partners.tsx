@@ -1,18 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { PARTNER_LOGOS, type PartnerLogo } from "@/lib/data";
+import { withBasePath } from "@/lib/paths";
 import { useReveal } from "@/hooks/useReveal";
 
-function PartnerLogo({ partner }: { partner: PartnerLogo }) {
+function PartnerLogoItem({ partner }: { partner: PartnerLogo }) {
   const [placeholder, setPlaceholder] = useState(false);
+  const src = withBasePath(`/assets/imgs/logos/partners/${partner.file}`);
 
   return (
     <div className={`partners__logo ${placeholder ? "partners__logo--placeholder" : ""}`}>
       {!placeholder && (
-        <Image
-          src={`/assets/imgs/logos/partners/${partner.file}`}
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={src}
           alt={`${partner.name} logo`}
           width={120}
           height={80}
@@ -34,15 +36,16 @@ export default function Partners() {
         <div className={`partners__intro ${intro.className}`} ref={intro.ref}>
           <h2 className="section-heading">Success Partners</h2>
           <p className="partners__subtext">
-            Get unlimited offers from our success partners once you get your office!
+            Get unlimited offers from our success partners once you get your office — perks that
+            grow with your business.
           </p>
         </div>
         <div className={`partners__grid ${grid.className} reveal--delay`} ref={grid.ref}>
           {PARTNER_LOGOS.map((partner) => (
-            <PartnerLogo key={partner.file} partner={partner} />
+            <PartnerLogoItem key={partner.file} partner={partner} />
           ))}
         </div>
       </div>
     </section>
   );
-}
+};

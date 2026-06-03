@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { SPACE_IMAGES } from "@/lib/data";
+import { STORY_IMAGES } from "@/lib/data";
+import { withBasePath } from "@/lib/paths";
 import { useReveal } from "@/hooks/useReveal";
 
 export default function Spaces() {
@@ -9,22 +9,26 @@ export default function Spaces() {
   const grid = useReveal();
 
   return (
-    <section className="section spaces" id="spaces">
+    <section className="section spaces" id="stories">
       <div className="container">
-        <h2 className={`section-heading section-heading--center ${heading.className}`} ref={heading.ref}>
-          Our Spaces
-        </h2>
-        <div className={`spaces__grid ${grid.className} reveal--delay`} ref={grid.ref}>
-          {SPACE_IMAGES.map((img) => (
-            <div
-              key={img.src}
-              className={`spaces__item ${img.className} ${"local" in img && img.local ? "spaces__item--color" : ""}`.trim()}
-            >
-              <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 50vw, 25vw" />
-            </div>
+        <div className={`spaces__header ${heading.className}`} ref={heading.ref}>
+          <h2 className="section-heading">Our Stories</h2>
+          <p className="spaces__lead">
+            Real moments from Efficiency Center — the climb, the coffee, and the work in between.
+          </p>
+        </div>
+      </div>
+
+      <div className={`spaces__strip ${grid.className} reveal--delay`} ref={grid.ref}>
+        <div className="spaces__grid">
+          {STORY_IMAGES.map((item) => (
+            <figure key={item.src} className="spaces__item">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={withBasePath(item.src)} alt={item.alt} className="spaces__img" loading="lazy" />
+            </figure>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};

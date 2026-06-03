@@ -17,6 +17,34 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+### Dev server looks broken (no styles, huge images)
+
+This is **not** your site design breaking — the **CSS bundle failed to load** in development. The HTML still renders, so you see default browser styling (serif text, blue links) and full-size images/video with no layout.
+
+Common causes in this project:
+
+1. **Corrupted `.next` cache** — terminal shows `Cannot find module './831.js'`, `invalid stored block lengths`, or webpack cache `ENOENT` errors.
+2. **Several `npm run dev` instances** on ports 3000, 3001, 3002, 3003 — the browser may hit a stale or half-dead server.
+
+**Fix (do this when it happens):**
+
+```bash
+# Stop all dev servers (Ctrl+C in each terminal), then:
+pkill -f "next dev" 2>/dev/null || true
+rm -rf .next
+npm run dev
+```
+
+Or use the shortcut:
+
+```bash
+npm run dev:clean
+```
+
+Then open only the URL printed in **that** terminal (usually `http://localhost:3000`) and hard-refresh (Cmd+Shift+R).
+
+Production (`npm run build` + GitHub Pages) is unaffected — this is a local dev-only issue.
+
 ## GitHub Pages
 
 The live site is at [https://6degrees.github.io/Efficiency-Center-Website/](https://6degrees.github.io/Efficiency-Center-Website/).
