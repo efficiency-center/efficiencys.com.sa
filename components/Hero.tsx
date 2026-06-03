@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { withBasePath } from "@/lib/paths";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -27,13 +28,13 @@ export default function Hero() {
         <video
           ref={videoRef}
           className="hero__img"
-          src="/assets/video/hero.mp4"
+          src={withBasePath("/assets/video/hero.mp4")}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster="/assets/imgs/services/furnished-offices.png"
+          poster={withBasePath("/assets/imgs/services/furnished-offices.png")}
           aria-label="Efficiency Center hero background video"
         />
         <div className="hero__overlay" />
