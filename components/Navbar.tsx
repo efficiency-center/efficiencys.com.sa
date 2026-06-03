@@ -130,6 +130,9 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+          <Link href="/contact" className="navbar__cta" onClick={closeMenu}>
+            Contact Us
+          </Link>
         </nav>
       </div>
     </header>

@@ -318,12 +318,9 @@ ul {
   background: var(--text);
 }
 
-/* ---- Floating Contact CTA (after hero, minimal) ---- */
-.floating-cta {
-  position: fixed;
-  right: clamp(1rem, 3vw, 2rem);
-  bottom: clamp(1.25rem, 4vw, 2rem);
-  z-index: 999;
+.navbar__cta {
+  margin-left: auto;
+  flex-shrink: 0;
   font-family: var(--font-display);
   font-size: 0.7rem;
   font-weight: 600;
@@ -333,22 +330,28 @@ ul {
   color: var(--text);
   border: 1px solid var(--text);
   padding: 0.7rem 1.25rem;
-  background: transparent;
-  opacity: 0;
-  transform: translateY(0.5rem);
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease, color 0.25s ease, border-color 0.25s ease;
+  background: #fff;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
-.floating-cta.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.floating-cta:hover {
+.navbar__cta:hover {
   color: var(--text-muted);
   border-color: var(--text-muted);
+}
+
+.navbar--hero .navbar__cta {
+  color: var(--text);
+  border-color: var(--text);
+  background: #fff;
+}
+
+.navbar--hero .navbar__cta:hover {
+  color: var(--text-muted);
+  border-color: var(--text-muted);
+  background: #fff;
 }
 
 .navbar__toggle {
