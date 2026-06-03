@@ -279,9 +279,9 @@ ul {
 }
 
 .navbar__links.is-hidden {
-  transform: translate(-50%, calc(-50% - 1.75rem));
-  opacity: 0;
-  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .navbar__links a {
@@ -818,94 +818,113 @@ ul {
   margin-inline: auto;
 }
 
-/* ---- Our Stories — full-width staggered mosaic (non-linear gutters) ---- */
+/* ---- Our Stories — Apple-style feature cards ---- */
 .spaces__header {
-  max-width: 40rem;
-  margin-bottom: clamp(2rem, 5vw, 3rem);
+  max-width: 32rem;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 .spaces__lead {
-  margin-top: 1.25rem;
+  margin-top: 1rem;
   font-size: 1.0625rem;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-.spaces__strip {
-  --spaces-gutter: clamp(0.75rem, 2.5vw, 1.25rem);
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  padding-inline: var(--spaces-gutter);
-  box-sizing: border-box;
-}
-
-.spaces__grid {
+.spaces__cards {
   display: grid;
-  width: 100%;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: minmax(300px, 42vh) minmax(260px, 34vh) minmax(260px, 34vh);
-  gap: clamp(4px, 0.45vw, 7px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.75rem, 1.5vw, 1rem);
 }
 
-/* Row 1: wide · narrow · wide */
-.spaces__item:nth-child(1) {
-  grid-column: 1 / 6;
-  grid-row: 1;
+.spaces__gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(0.75rem, 1.5vw, 1rem);
+  margin-top: clamp(0.75rem, 1.5vw, 1rem);
 }
 
-.spaces__item:nth-child(2) {
-  grid-column: 6 / 8;
-  grid-row: 1;
-}
-
-.spaces__item:nth-child(3) {
-  grid-column: 8 / 13;
-  grid-row: 1;
-}
-
-/* Row 2: two panels — split does not line up with row 1 */
-.spaces__item:nth-child(4) {
-  grid-column: 1 / 8;
-  grid-row: 2;
-}
-
-.spaces__item:nth-child(5) {
-  grid-column: 8 / 13;
-  grid-row: 2;
-}
-
-/* Row 3: mirrored split */
-.spaces__item:nth-child(6) {
-  grid-column: 1 / 6;
-  grid-row: 3;
-}
-
-.spaces__item:nth-child(7) {
-  grid-column: 6 / 13;
-  grid-row: 3;
-}
-
-.spaces__item {
+.spaces__card {
   position: relative;
   margin: 0;
-  min-height: 0;
   overflow: hidden;
-  border-radius: clamp(6px, 0.6vw, 10px);
+  border-radius: 1.25rem;
   background: var(--bg-card);
 }
 
-.spaces__img {
+.spaces__card--featured {
+  min-height: clamp(420px, 52vw, 560px);
+}
+
+.spaces__card--compact {
+  min-height: clamp(280px, 38vw, 380px);
+}
+
+.spaces__card--compact .spaces__card-title {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+}
+
+.spaces__card--compact .spaces__card-text {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.spaces__card--compact .spaces__card-copy {
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  max-width: 100%;
+}
+
+.spaces__card-media {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.spaces__item:hover .spaces__img {
-  transform: scale(1.03);
+.spaces__card:hover .spaces__card-media {
+  transform: scale(1.02);
+}
+
+.spaces__card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0.25) 65%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.spaces__card-copy {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  max-width: 28rem;
+}
+
+.spaces__card-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.spaces__card-text {
+  margin: 0.75rem 0 0;
+  font-size: clamp(0.9375rem, 1.35vw, 1.0625rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 /* ---- Partners ---- */
@@ -1464,16 +1483,23 @@ ul {
   height: 1rem;
 }
 
-/* ---- Scroll reveal ---- */
+/* ---- Scroll reveal (content stays visible — slide only) ---- */
 .reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 1;
+  transform: translateY(20px);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.is-visible {
-  opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    transform: none;
+    transition: none;
+  }
 }
 
 .reveal--delay {
@@ -1482,37 +1508,8 @@ ul {
 
 /* ---- Responsive ---- */
 @media (max-width: 1024px) {
-  .spaces__grid {
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: minmax(240px, 36vh) minmax(220px, 32vh) minmax(220px, 32vh);
-  }
-
-  .spaces__item:nth-child(1) {
-    grid-column: 1 / 3;
-  }
-
-  .spaces__item:nth-child(2) {
-    grid-column: 3 / 4;
-  }
-
-  .spaces__item:nth-child(3) {
-    grid-column: 4 / 7;
-  }
-
-  .spaces__item:nth-child(4) {
-    grid-column: 1 / 4;
-  }
-
-  .spaces__item:nth-child(5) {
-    grid-column: 4 / 7;
-  }
-
-  .spaces__item:nth-child(6) {
-    grid-column: 1 / 3;
-  }
-
-  .spaces__item:nth-child(7) {
-    grid-column: 3 / 7;
+  .spaces__gallery {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .partners__grid {
@@ -1602,20 +1599,23 @@ ul {
     grid-template-columns: 1fr;
   }
 
-  .spaces__grid {
+  .spaces__cards,
+  .spaces__gallery {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, minmax(240px, 48vw));
   }
 
-  .spaces__item:nth-child(1),
-  .spaces__item:nth-child(2),
-  .spaces__item:nth-child(3),
-  .spaces__item:nth-child(4),
-  .spaces__item:nth-child(5),
-  .spaces__item:nth-child(6),
-  .spaces__item:nth-child(7) {
-    grid-column: 1;
-    grid-row: auto;
+  .spaces__card--featured {
+    min-height: clamp(380px, 70vw, 480px);
+  }
+
+  .spaces__card--compact {
+    min-height: clamp(300px, 65vw, 400px);
+  }
+
+  @media (min-width: 480px) {
+    .spaces__gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .partners__grid {

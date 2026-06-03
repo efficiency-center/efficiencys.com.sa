@@ -28,7 +28,6 @@ function ServiceSlideImage({ service }: { service: Service }) {
 
 export default function Services() {
   const intro = useReveal();
-  const panel = useReveal();
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
@@ -115,8 +114,7 @@ export default function Services() {
         </div>
 
         <div
-          className={`services__feature ${panel.className} reveal--delay`}
-          ref={panel.ref}
+          className="services__feature"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >

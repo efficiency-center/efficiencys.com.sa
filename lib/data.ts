@@ -7,45 +7,69 @@ export const NAV_LINKS = [
   { href: "#faq", label: "FAQ" },
 ] as const;
 
-export type StoryImage = {
+export type StoryCard = {
   src: string;
   alt: string;
+  headline: string;
+  body: string;
+  featured?: boolean;
 };
 
-export const STORY_IMAGES: StoryImage[] = [
+export const STORY_CARDS: StoryCard[] = [
+  {
+    featured: true,
+    src: "/assets/imgs/stories/story-stairs.png",
+    alt: "Team member on the stairs at Efficiency Center",
+    headline: "Your hike to peak.",
+    body: "Real moments from our spaces — where teams climb toward their next milestone, one step at a time.",
+  },
+  {
+    featured: true,
+    src: "/assets/imgs/stories/story-building.png",
+    alt: "Efficiency Center building exterior",
+    headline: "Built for how you work.",
+    body: "Fully serviced offices and lounges at Corniche Park — designed for focus, collaboration, and growth.",
+  },
   {
     src: "/assets/imgs/stories/story-bar.png",
     alt: "High-top lounge at Efficiency Center",
-  },
-  {
-    src: "/assets/imgs/stories/story-stairs.png",
-    alt: "Team member on the stairs at Efficiency Center",
-  },
-  {
-    src: "/assets/imgs/stories/story-building.png",
-    alt: "Efficiency Center building exterior",
+    headline: "Coffee chats count.",
+    body: "The lounge is where ideas meet before the meeting starts.",
   },
   {
     src: "/assets/imgs/stories/story-marble-office.png",
     alt: "Glass office with marble desk",
+    headline: "Private offices.",
+    body: "Turn-key spaces with premium finishes and room to think.",
   },
   {
     src: "/assets/imgs/stories/story-creative.png",
     alt: "Creative desk with monitor",
+    headline: "Creative desks.",
+    body: "Open layouts with views and the tools your team needs.",
   },
   {
     src: "/assets/imgs/stories/story-focus.png",
     alt: "Minimal desk setup from above",
+    headline: "Deep focus.",
+    body: "Quiet corners for work that needs your full attention.",
   },
   {
     src: "/assets/imgs/stories/story-desk-detail.png",
     alt: "Desk detail with plant",
+    headline: "Details matter.",
+    body: "Plants, light, and calm — the small things that shape the day.",
   },
 ];
 
-/** @deprecated Use STORY_IMAGES */
-export const SPACE_IMAGES = STORY_IMAGES;
-export type SpaceImage = StoryImage;
+export const STORY_FEATURED = STORY_CARDS.filter((card) => card.featured);
+export const STORY_GALLERY = STORY_CARDS.filter((card) => !card.featured);
+
+/** @deprecated Use STORY_CARDS */
+export const STORY_IMAGES = STORY_CARDS;
+export type StoryImage = StoryCard;
+export const SPACE_IMAGES = STORY_CARDS;
+export type SpaceImage = StoryCard;
 
 export type PartnerLogo = {
   file: string;
