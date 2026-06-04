@@ -230,6 +230,27 @@ ul {
   padding-bottom: 0.35rem;
 }
 
+@media (min-width: 769px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar__inner {
+    display: contents;
+  }
+
+  .navbar__nav {
+    position: static;
+    inset: auto;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    flex: 1;
+    margin-left: auto;
+  }
+}
+
 .navbar__logo {
   display: inline-flex;
   align-items: center;
@@ -837,11 +858,16 @@ ul {
   flex-direction: column;
   align-items: center;
   gap: clamp(1.75rem, 4vh, 2.5rem);
-  width: 100%;
+  width: var(--container);
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2rem);
+  box-sizing: border-box;
 }
 
 .testimonials__head {
   text-align: center;
+  width: 100%;
   max-width: 36rem;
   margin-inline: auto;
 }
@@ -870,6 +896,8 @@ ul {
   font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.7;
+  max-width: 100%;
+  text-wrap: pretty;
 }
 
 .testimonials__carousel {
@@ -1065,6 +1093,10 @@ ul {
 }
 
 @media (max-width: 520px) {
+  .testimonials__inner {
+    padding-inline: 1.35rem;
+  }
+
   .testimonials__card {
     flex-direction: column;
     border-radius: 2rem;
@@ -1786,36 +1818,74 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    margin-bottom: -4.5rem;
+  }
+
+  .navbar.navbar--menu-open {
+    margin-bottom: 0;
+  }
+
+  .navbar__inner {
+    position: relative;
+    z-index: 1002;
+    width: 100%;
+    max-width: 100%;
+    padding-inline: clamp(1.35rem, 5vw, 2rem);
+    box-sizing: border-box;
+  }
+
   .navbar__toggle {
     display: flex;
+    z-index: 1;
+  }
+
+  .navbar__logo {
+    position: relative;
+    z-index: 1;
+  }
+
+  .navbar.navbar--menu-open {
+    background: var(--bg) !important;
+    pointer-events: auto;
+  }
+
+  .navbar.navbar--menu-open .site-logo--navbar {
+    filter: brightness(0);
+  }
+
+  .navbar.navbar--menu-open .navbar__toggle span {
+    background: var(--text);
   }
 
   .navbar__nav {
     position: fixed;
-    top: 4.5rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
+    z-index: 1001;
+    display: flex;
     flex-direction: column;
     align-items: stretch;
+    justify-content: flex-start;
     gap: 0;
-    padding: 2rem;
+    margin-left: 0;
+    padding: 5.5rem clamp(1.35rem, 5vw, 2rem) clamp(2rem, 8vh, 3rem);
     background: var(--bg);
-    border-top: 1px solid var(--border);
+    border-top: none;
+    visibility: hidden;
     transform: translateX(100%);
-    opacity: 1;
-    transition:
-      transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0.45s;
   }
 
   .navbar__nav.is-open {
+    visibility: visible;
     transform: translateX(0);
+    pointer-events: auto;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0s;
   }
 
   .navbar__nav.is-hidden:not(.is-open) {
-    transform: translateX(100%) translateY(-1rem);
-    opacity: 0;
+    transform: translateX(100%);
     pointer-events: none;
   }
 
@@ -1823,25 +1893,51 @@ ul {
     position: static;
     left: auto;
     top: auto;
-    transform: none;
+    transform: none !important;
+    flex: 1;
+    display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    opacity: 1;
-  }
-
-  .navbar__links.is-hidden {
-    transform: none;
-    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    opacity: 1 !important;
     pointer-events: auto;
   }
 
-  .navbar__links a {
+  .navbar__links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar--hero .navbar__nav .navbar__links a,
+  .navbar--page .navbar__nav .navbar__links a,
+  .navbar__nav .navbar__links a {
+    display: inline-block;
     font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted) !important;
+  }
+
+  .navbar__nav .navbar__links a:hover,
+  .navbar__nav .navbar__links a.active {
+    color: var(--text) !important;
   }
 
   .navbar__cta {
-    margin-top: 2rem;
+    margin-top: auto;
+    margin-left: 0;
+    align-self: center;
     text-align: center;
+    width: min(100%, 14rem);
+    color: var(--text) !important;
+    border-color: var(--text) !important;
+    background: #fff !important;
   }
 
   .services__story-grid {

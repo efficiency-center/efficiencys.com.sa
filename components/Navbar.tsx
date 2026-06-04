@@ -91,7 +91,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`navbar ${onHero ? "navbar--hero" : "navbar--page"}`}
+      className={`navbar ${onHero ? "navbar--hero" : "navbar--page"} ${menuOpen ? "navbar--menu-open" : ""}`}
       id="navbar"
     >
       <div className="container navbar__inner">
@@ -102,39 +102,39 @@ export default function Navbar() {
         <button
           type="button"
           className={`navbar__toggle ${menuOpen ? "is-open" : ""}`}
-          aria-label="Open menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((o) => !o)}
         >
           <span />
           <span />
         </button>
-
-        <nav
-          className={`navbar__nav ${navHidden ? "is-hidden" : ""} ${menuOpen ? "is-open" : ""}`}
-          id="navMenu"
-          aria-hidden={navHidden && !menuOpen}
-        >
-          <ul className={`navbar__links ${navHidden ? "is-hidden" : ""}`}>
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={sectionHref(link.href)}
-                  className={
-                    pathname === "/" && activeId === link.href.slice(1) ? "active" : ""
-                  }
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Link href="/contact" className="navbar__cta" onClick={closeMenu}>
-            Contact Us
-          </Link>
-        </nav>
       </div>
+
+      <nav
+        className={`navbar__nav ${navHidden && !menuOpen ? "is-hidden" : ""} ${menuOpen ? "is-open" : ""}`}
+        id="navMenu"
+        aria-hidden={!menuOpen}
+      >
+        <ul className="navbar__links">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={sectionHref(link.href)}
+                className={
+                  pathname === "/" && activeId === link.href.slice(1) ? "active" : ""
+                }
+                onClick={closeMenu}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <Link href="/contact" className="navbar__cta" onClick={closeMenu}>
+          Contact Us
+        </Link>
+      </nav>
     </header>
   );
 }
