@@ -110,7 +110,7 @@ export const FAQ_ITEMS = [
   {
     question: "Where are you located?",
     answer:
-      "Two branches: Efficiency Center — Al-Khobar at 6919 Prince Turki ST, Corniche Park (overlooking the Arabian Gulf and Khobar Tower), and Efficiency Center — Riyadh. Both are near restaurants, cafés, and key business districts.",
+      "Three branches: Efficiency Center — Al-Khobar at 6919 Prince Turki ST, Corniche Park (overlooking the Arabian Gulf and Khobar Tower), plus two Riyadh locations — 1st Branch and 2nd Branch on Abi Bakr As Siddiq Rd, Al Mursalat. All are near restaurants, cafés, and key business districts.",
     defaultOpen: false,
   },
   {

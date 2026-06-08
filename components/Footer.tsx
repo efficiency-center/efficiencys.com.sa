@@ -42,7 +42,7 @@ export default function Footer() {
             <h3 className="footer__col-title">Locations</h3>
             {OFFICES.map((office) => (
               <div key={office.id} className="footer__address-block">
-                <p className="footer__address-name">{office.city}</p>
+                <p className="footer__address-name">{office.tabLabel}</p>
                 <p className="footer__address-line">{office.address}</p>
                 <a
                   href={office.googleMapsUrl}

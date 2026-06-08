@@ -1,6 +1,7 @@
 export type OfficeLocation = {
   id: string;
   name: string;
+  tabLabel: string;
   address: string;
   city: string;
   country: string;
@@ -19,6 +20,7 @@ export const CONTACT = {
 export const OFFICES: OfficeLocation[] = [
   {
     id: "khobar",
+    tabLabel: "Al-Khobar",
     name: "Efficiency Center — Al-Khobar",
     address: "6919 Prince Turki ST, Cornich Park",
     city: "Al-Khobar",
@@ -29,15 +31,28 @@ export const OFFICES: OfficeLocation[] = [
     googleMapsUrl: "https://share.google/Wy58G1U4nu8NuKSDW",
   },
   {
-    id: "riyadh",
-    name: "Efficiency Center — Riyadh Branch",
-    address: "Efficiency Center — Riyadh Branch",
+    id: "riyadh-1",
+    tabLabel: "1st Branch Riyadh",
+    name: "Efficiency Center — Riyadh (1st Branch)",
+    address: "Riyadh — 1st Branch",
     city: "Riyadh",
     country: "Saudi Arabia",
     phone: CONTACT.phone,
     email: CONTACT.email,
-    coordinates: [46.7070678, 24.778489],
-    googleMapsUrl: "https://maps.app.goo.gl/3aJJ1dCFfyYc2ZEC8",
+    coordinates: [46.6935173, 24.8007895],
+    googleMapsUrl: "https://maps.app.goo.gl/ugD9etNij2GqSuyi8",
+  },
+  {
+    id: "riyadh-2",
+    tabLabel: "2nd Branch Riyadh",
+    name: "Efficiency Center — Riyadh (2nd Branch)",
+    address: "6651 Abi Bakr As Siddiq Rd, Al Mursalat",
+    city: "Riyadh",
+    country: "Saudi Arabia",
+    phone: CONTACT.phone,
+    email: CONTACT.email,
+    coordinates: [46.7007381, 24.7501034],
+    googleMapsUrl: "https://maps.app.goo.gl/BKMDdRNg7hqT4RadA",
   },
 ];
 

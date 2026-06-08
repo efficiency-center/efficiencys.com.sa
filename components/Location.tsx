@@ -33,7 +33,7 @@ export default function Location() {
                   className={`location__tab ${activeId === loc.id ? "is-active" : ""}`}
                   onClick={() => setActiveId(loc.id)}
                 >
-                  {loc.city === "Al-Khobar" ? "Al-Khobar" : "Riyadh Branch"}
+                  {loc.tabLabel}
                 </button>
               ))}
             </div>
@@ -55,7 +55,7 @@ export default function Location() {
             </a>
           </div>
           <p className="location__hint">
-            Two locations across Saudi Arabia — switch branches above and explore in 3D.
+            Three branches across Saudi Arabia — switch locations above and explore each in 3D.
           </p>
           </div>
 
