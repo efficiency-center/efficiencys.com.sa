@@ -12,7 +12,7 @@ export const EVENTS: EventCard[] = [
     title: "Seren",
     description:
       "An exclusive gathering celebrating creativity and innovation at Efficiency Center.",
-    image: "/assets/imgs/services/01.png",
+    image: "/assets/imgs/services/01.jpg",
     video: "/assets/video/seren.mp4",
   },
   {
@@ -20,7 +20,7 @@ export const EVENTS: EventCard[] = [
     title: "Keeta V",
     description:
       "A special collaboration event hosted at Efficiency Center — connecting creators and businesses.",
-    image: "/assets/imgs/services/01.png",
+    image: "/assets/imgs/services/01.jpg",
     video: "/assets/video/keeta-v.mp4",
   },
   {
