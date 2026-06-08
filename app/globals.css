@@ -1321,10 +1321,6 @@ ul {
   animation: marquee-right 40s linear infinite;
 }
 
-.partners__marquee:hover .partners__row-inner {
-  animation-play-state: paused;
-}
-
 @keyframes marquee-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.33%); }

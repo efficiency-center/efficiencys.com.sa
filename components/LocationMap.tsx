@@ -64,6 +64,7 @@ export default function LocationMap({ office }: LocationMapProps) {
           pitch: 62,
           bearing: -32,
           attributionControl: false,
+          scrollZoom: false,
         });
 
         mapRef.current = map;
