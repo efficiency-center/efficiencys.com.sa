@@ -28,7 +28,7 @@ export default function Hero() {
         <video
           ref={videoRef}
           className="hero__img"
-          src={withBasePath("/assets/video/hero.mp4")}
+          src={withBasePath("/assets/video/office.mp4")}
           autoPlay
           muted
           loop
@@ -40,9 +40,9 @@ export default function Hero() {
         <div className="hero__overlay" />
       </div>
       <div className="hero__content">
-        <h1 className="hero__title">Your Hike to Peak</h1>
+        <h1 className="hero__title">Where Your Business Echoes</h1>
         <p className="hero__subtitle">
-          Modern Fully-Serviced Office Spaces for Productive Time to be Spent
+          Fully-serviced workspaces designed to accelerate your business — coworking, private offices, and complete business solutions in Al-Khobar and Riyadh.
         </p>
         <Link href="/contact" className="btn btn--outline hero__cta">
           Contact Us

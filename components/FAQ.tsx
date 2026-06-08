@@ -1,52 +1,65 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FAQ_ITEMS } from "@/lib/data";
 import { useReveal } from "@/hooks/useReveal";
 
+function FaqItem({ question, answer, defaultOpen }: { question: string; answer: string; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen ?? false);
+  const bodyRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className={`faq-item ${open ? "is-open" : ""}`}>
+      <button
+        type="button"
+        className="faq-item__trigger"
+        aria-expanded={open}
+        onClick={() => setOpen((o) => !o)}
+      >
+        <span className="faq-item__question">{question}</span>
+        <span className="faq-item__icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M7 1v12M1 7h12" className="faq-item__icon-v" />
+          </svg>
+        </span>
+      </button>
+      <div
+        className="faq-item__body"
+        ref={bodyRef}
+        style={{
+          maxHeight: open ? `${bodyRef.current?.scrollHeight ?? 500}px` : "0px",
+        }}
+      >
+        <div className="faq-item__answer">
+          <p>{answer}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function FAQ() {
-  const heading = useReveal();
-  const list = useReveal();
-  const [showAll, setShowAll] = useState(false);
+  const heading = useReveal({ stagger: true });
 
   return (
     <section className="section faq" id="faq">
-      <div className="container">
-        <h2 className={`section-heading ${heading.className}`} ref={heading.ref}>
-          FAQ
-        </h2>
-        <div className={`faq__list ${list.className} reveal--delay`} ref={list.ref}>
+      <div className="faq__container">
+        <div className={`faq__head ${heading.className}`} ref={heading.ref}>
+          <h2 className="faq__title">FAQs</h2>
+        </div>
+        <div className="faq__list">
           {FAQ_ITEMS.map((item) => {
-            const isHidden = "hidden" in item && item.hidden;
+            if ("hidden" in item && item.hidden) return null;
             return (
-            <details
-              key={item.question}
-              className={`faq-item ${isHidden && !showAll ? "faq-item--hidden" : ""} ${isHidden && showAll ? "is-visible" : ""}`}
-              open={item.defaultOpen}
-            >
-              <summary className="faq-item__question">
-                <span>{item.question}</span>
-                <span className="faq-item__icon" aria-hidden="true" />
-              </summary>
-              <div className="faq-item__answer">
-                <p>{item.answer}</p>
-              </div>
-            </details>
-          );
+              <FaqItem
+                key={item.question}
+                question={item.question}
+                answer={item.answer}
+                defaultOpen={item.defaultOpen}
+              />
+            );
           })}
         </div>
-        {!showAll && (
-          <button
-            type="button"
-            className="faq__more link-accent"
-            onClick={() => setShowAll(true)}
-          >
-            Show More
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-        )}
       </div>
     </section>
   );

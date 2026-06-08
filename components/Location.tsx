@@ -11,7 +11,7 @@ const LocationMap = dynamic(() => import("@/components/LocationMap"), {
 });
 
 export default function Location() {
-  const header = useReveal();
+  const header = useReveal({ stagger: true });
   const map = useReveal();
   const [activeId, setActiveId] = useState(DEFAULT_OFFICE_ID);
   const office = getOffice(activeId);

@@ -22,10 +22,9 @@ export default function ContactCta() {
         <div className="contact-cta__visual-overlay" />
       </div>
       <div className={`container contact-cta__inner ${reveal.className}`} ref={reveal.ref}>
-        <h2 className="section-heading section-heading--light">Get in Touch</h2>
+        <h2 className="section-heading section-heading--light">Ready to elevate your workspace?</h2>
         <p className="contact-cta__text">
-          Share your details and we&apos;ll reach out about available offices, incubator spaces, and
-          tailored plans.
+          From a single desk to a fully equipped headquarters — we provide inspiring workspaces and a motivating environment alongside services designed to add real value to your business.
         </p>
         <p className="contact-cta__contact-line">
           <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}>{CONTACT.phone}</a>

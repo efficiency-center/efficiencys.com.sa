@@ -2,12 +2,15 @@
 
 import { STORY_FEATURED, STORY_GALLERY } from "@/lib/data";
 import { withBasePath } from "@/lib/paths";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function Spaces() {
+  const header = useReveal({ stagger: true });
+
   return (
     <section className="section spaces" id="stories">
       <div className="container">
-        <div className="spaces__header">
+        <div className={`spaces__header ${header.className}`} ref={header.ref}>
           <h2 className="section-heading">Our Stories</h2>
           <p className="spaces__lead">
             Real moments from Efficiency Center — the climb, the coffee, and the work in between.

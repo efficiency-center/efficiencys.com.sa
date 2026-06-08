@@ -41,9 +41,6 @@ export const OFFICES: OfficeLocation[] = [
   },
 ];
 
-/** @deprecated Use OFFICES — kept for compatibility */
-export const SITE_LOCATION = OFFICES[0];
-
 export const DEFAULT_OFFICE_ID = "khobar";
 
 export function getOffice(id: string): OfficeLocation {

@@ -65,12 +65,6 @@ export const STORY_CARDS: StoryCard[] = [
 export const STORY_FEATURED = STORY_CARDS.filter((card) => card.featured);
 export const STORY_GALLERY = STORY_CARDS.filter((card) => !card.featured);
 
-/** @deprecated Use STORY_CARDS */
-export const STORY_IMAGES = STORY_CARDS;
-export type StoryImage = StoryCard;
-export const SPACE_IMAGES = STORY_CARDS;
-export type SpaceImage = StoryCard;
-
 export type PartnerLogo = {
   file: string;
   name: string;
@@ -79,46 +73,62 @@ export type PartnerLogo = {
 };
 
 export const PARTNER_LOGOS: PartnerLogo[] = [
-  { file: "ada.png", name: "ADA — أداء", color: true },
+  { file: "saudi-aramco.png", name: "Saudi Aramco", color: true },
+  { file: "satorp-logo-colored.png", name: "SATORP", color: true },
+  { file: "adnoc-logo.png", name: "ADNOC", color: true },
+  { file: "accenture-logo.png", name: "Accenture", color: true },
+  { file: "gdc-new.png", name: "GDC Middle East", color: true },
+  { file: "Al-Salam-Hospitals.jpg", name: "Al-Salam Hospitals", color: true },
+  { file: "keeta-logo.png", name: "Keeta", color: true },
+  { file: "channel-logo-color.webp", name: "Channel", color: true },
+  { file: "Dhahia-logo-maroon.png", name: "Dhahia", color: true },
+  { file: "IWS_logo_transparent.png", name: "IWS", color: true },
+  { file: "STATS_Group_2022-compressed.webp", name: "STATS Group", color: true },
+  { file: "draken.svg", name: "Draken", color: true },
+  { file: "ebit.svg", name: "Ebit", color: true },
+  { file: "ef.svg", name: "EF", color: true },
+  { file: "foodaroma.png", name: "Food Aroma", color: true },
+  { file: "kepco.png", name: "KEPCO", color: true },
+  { file: "logo-foodex.png", name: "Foodex", color: true },
+  { file: "sahseh.webp", name: "Sahseh", color: true },
+  { file: "ada.png", name: "ADA", color: true },
 ];
 
 export const FAQ_ITEMS = [
   {
     question: "What types of workspaces do you offer?",
     answer:
-      "We offer furnished private offices, open-space desks, meeting and conference rooms, a creative studio, and specialized incubator environments — all fully serviced and ready for your team.",
+      "Private enclosed offices, open shared workspaces, a conference room seating 35, a 7-person meeting room, a business lounge, sound and photography studios, a balcony event space (276 sqm), and specialized incubator environments — all fully serviced.",
     defaultOpen: true,
   },
   {
-    question: "Do you help prepare or operate workspaces?",
+    question: "Do you only provide coworking, or more?",
     answer:
-      "Yes. Beyond coworking, we support preparing workspaces from the ground up and operating facilities with trained teams — aligned with the services in our company profile.",
+      "We offer four core services: business incubation and coworking, workspace preparation from scratch, facility operations with trained teams, and business challenge solutions including technical support, accounting, HR, legal, and secretarial services.",
     defaultOpen: false,
   },
   {
     question: "Where are you located?",
     answer:
-      "We have two branches: Efficiency Center — Al-Khobar at 6919 Prince Turki ST, Cornich Park, and Efficiency Center — Riyadh Branch. Use Find Us or the footer to open either location on the map.",
+      "Two branches: Efficiency Center — Al-Khobar at 6919 Prince Turki ST, Corniche Park (overlooking the Arabian Gulf and Khobar Tower), and Efficiency Center — Riyadh. Both are near restaurants, cafés, and key business districts.",
     defaultOpen: false,
   },
   {
-    question: "What's included in the office package?",
+    question: "What's included with my office?",
     answer:
-      "Your package includes high-speed Wi-Fi, printing, reception, business lounge access, hospitality, 24/7 access, meeting facilities, and access to success-partner offers.",
+      "High-speed Wi-Fi, printing and scanning, 24/7 access, professional reception and secretarial support, hospitality service, business lounge access, meeting room booking, stationery kits, and access to success-partner offers.",
     defaultOpen: false,
   },
   {
     question: "How does this align with Vision 2030?",
     answer:
-      "We aim to be a leading provider of efficient workspaces for local and international sectors, contributing to the Kingdom's goals for progress, innovation, and economic growth.",
+      "Our vision is aligned with Saudi Vision 2030 — we aspire to shape the Kingdom's future by delivering efficient workspaces for local and international sectors, contributing to progress, innovation, and economic growth.",
     defaultOpen: false,
-    hidden: true,
   },
   {
     question: "How do I get started?",
     answer:
-      "Reach out via our contact form or call +966 58 111 5550. Our team will schedule a tour and help you find the right space and plan for your business.",
+      "Reach out via our contact form, call +966 58 111 5550, or message us on WhatsApp. Our team will schedule a tour of the center and help you find the right space and plan for your business.",
     defaultOpen: false,
-    hidden: true,
   },
 ] as const;

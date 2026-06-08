@@ -4,10 +4,10 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import Spaces from "@/components/Spaces";
+import Events from "@/components/Events";
 import Partners from "@/components/Partners";
 import Location from "@/components/Location";
 import FAQ from "@/components/FAQ";
-import ContactCta from "@/components/ContactCta";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,10 +20,10 @@ export default function Home() {
         <Services />
         <Testimonials />
         <Spaces />
+        <Events />
         <Partners />
         <Location />
         <FAQ />
-        <ContactCta />
       </main>
       <Footer />
     </>
