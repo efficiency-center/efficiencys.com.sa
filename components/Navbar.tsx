@@ -91,7 +91,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`navbar ${onHero ? "navbar--hero" : "navbar--page"} ${menuOpen ? "navbar--menu-open" : ""}`}
+      className={`navbar ${onHero ? "navbar--hero" : "navbar--page"} ${menuOpen ? "navbar--menu-open" : ""} ${navHidden && !menuOpen ? "navbar--hidden" : ""}`}
       id="navbar"
     >
       <div className="container navbar__inner">
@@ -112,7 +112,7 @@ export default function Navbar() {
       </div>
 
       <nav
-        className={`navbar__nav ${navHidden && !menuOpen ? "is-hidden" : ""} ${menuOpen ? "is-open" : ""}`}
+        className={`navbar__nav ${menuOpen ? "is-open" : ""}`}
         id="navMenu"
         aria-hidden={!menuOpen}
       >
