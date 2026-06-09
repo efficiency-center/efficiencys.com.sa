@@ -277,13 +277,11 @@ ul {
 
 .navbar--page .site-logo--navbar .brand-mark__hook,
 .navbar.navbar--menu-open .site-logo--navbar .brand-mark__hook {
-  fill: var(--text);
+  fill: #000;
 }
 
 .site-logo--footer {
   height: 3.25rem;
-  /* logo.png is white-on-dark; invert for light footer background */
-  filter: invert(1);
 }
 
 .navbar__nav {
@@ -1629,7 +1627,9 @@ ul {
 /* ---- Footer (Cleo-style multi-column) ---- */
 .footer {
   margin-top: 0;
-  border-top: 1px solid var(--warm-100);
+  background: #000;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer__body {
@@ -1658,7 +1658,7 @@ ul {
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 400;
-  color: var(--text-muted);
+  color: var(--text-on-dark-muted);
   line-height: 1.5;
   max-width: 16rem;
 }
@@ -1667,7 +1667,7 @@ ul {
   font-family: var(--font-display);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text);
+  color: #fff;
   margin-bottom: 1.25rem;
 }
 
@@ -1679,12 +1679,12 @@ ul {
 
 .footer__col-links a {
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: var(--text-on-dark-muted);
   transition: color var(--transition);
 }
 
 .footer__col-links a:hover {
-  color: var(--text);
+  color: #fff;
 }
 
 .footer__address-block {
@@ -1699,13 +1699,13 @@ ul {
   font-family: var(--font-display);
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--text);
+  color: #fff;
   margin-bottom: 0.25rem;
 }
 
 .footer__address-line {
   font-size: 0.8125rem;
-  color: var(--text-muted);
+  color: var(--text-on-dark-muted);
   line-height: 1.5;
 }
 
@@ -1713,18 +1713,18 @@ ul {
   display: inline-block;
   margin-top: 0.35rem;
   font-size: 0.8125rem;
-  color: var(--accent);
+  color: rgba(255, 255, 255, 0.92);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color var(--transition);
 }
 
 .footer__address-map:hover {
-  color: var(--accent-hover);
+  color: #fff;
 }
 
 .footer__bottom {
-  border-top: 1px solid var(--warm-100);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1.5rem 0;
 }
 
@@ -1738,7 +1738,7 @@ ul {
 
 .footer__copy {
   font-size: 0.75rem;
-  color: var(--text-dim);
+  color: var(--text-on-dark-muted);
   letter-spacing: 0.02em;
 }
 
@@ -1753,12 +1753,12 @@ ul {
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  color: var(--text-dim);
+  color: var(--text-on-dark-muted);
   transition: color var(--transition);
 }
 
 .footer__social a:hover {
-  color: var(--text);
+  color: #fff;
 }
 
 .footer__social svg {
@@ -1993,15 +1993,16 @@ ul {
 
 /* ---- Location / 3D Map ---- */
 .location__band {
-  background: var(--accent);
+  background: #000;
   color: #fff;
   padding-block: clamp(3rem, 8vw, 5rem);
 }
 
-.location__band .container {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(2rem, 4vw, 3rem);
+.location__band .location__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
 }
 
 .location__band .section-heading {
@@ -2038,12 +2039,8 @@ ul {
   color: #fff;
 }
 
-.location__header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: end;
-  margin-bottom: 0;
+.location__content {
+  max-width: 26rem;
 }
 
 .location__tabs {
@@ -2106,11 +2103,12 @@ ul {
 }
 
 .location__hint {
+  margin-top: 1.5rem;
   font-size: 0.875rem;
   color: var(--text-dim);
-  text-align: right;
-  max-width: 20rem;
-  justify-self: end;
+  text-align: left;
+  max-width: 22rem;
+  line-height: 1.55;
 }
 
 .location__map-wrap {
@@ -2275,13 +2273,12 @@ ul {
 
 
 @media (max-width: 768px) {
-  .location__header {
+  .location__band .location__layout {
     grid-template-columns: 1fr;
   }
 
-  .location__hint {
-    text-align: left;
-    justify-self: start;
+  .location__content {
+    max-width: none;
   }
 
   .location-map--fallback {

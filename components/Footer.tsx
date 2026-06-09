@@ -22,7 +22,6 @@ export default function Footer() {
             <ul className="footer__col-links">
               <li><Link href="/#about">About</Link></li>
               <li><Link href="/#services">Services</Link></li>
-              <li><Link href="/#stories">Our Stories</Link></li>
               <li><Link href="/#partners">Partners</Link></li>
               <li><Link href="/#faq">FAQs</Link></li>
             </ul>
