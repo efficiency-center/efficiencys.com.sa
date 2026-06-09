@@ -220,6 +220,9 @@ ul {
   .navbar {
     display: flex;
     align-items: center;
+    min-height: 4.5rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.35rem;
     padding-inline: var(--navbar-edge-pad);
     box-sizing: border-box;
   }
@@ -255,12 +258,26 @@ ul {
 }
 
 .site-logo--navbar {
-  height: 3.25rem;
-  transition: filter 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  /* Match the mark size inside the old stacked wordmark (was 3.25rem tall). */
+  height: 2rem;
+  width: auto;
+  aspect-ratio: 175 / 150;
+  flex-shrink: 0;
 }
 
-.navbar--page .site-logo--navbar {
-  filter: brightness(0);
+.site-logo--navbar .brand-mark__dot {
+  fill: var(--accent);
+  transition: fill 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.site-logo--navbar .brand-mark__hook {
+  fill: #fff;
+  transition: fill 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.navbar--page .site-logo--navbar .brand-mark__hook,
+.navbar.navbar--menu-open .site-logo--navbar .brand-mark__hook {
+  fill: var(--text);
 }
 
 .site-logo--footer {
@@ -1805,10 +1822,6 @@ ul {
   .navbar.navbar--menu-open {
     background: var(--bg) !important;
     pointer-events: auto;
-  }
-
-  .navbar.navbar--menu-open .site-logo--navbar {
-    filter: brightness(0);
   }
 
   .navbar.navbar--menu-open .navbar__toggle span {
