@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import PixelAvatar from "@/components/PixelAvatar";
-import { TESTIMONIALS } from "@/lib/testimonials";
+import { GOOGLE_MAPS_REVIEWS_URL, TESTIMONIALS } from "@/lib/testimonials";
 import { useReveal } from "@/hooks/useReveal";
 
 const COPIES = 5;
@@ -69,12 +69,12 @@ export default function Testimonials() {
     <section className="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
       <div className="testimonials__inner container">
         <div className={`testimonials__head ${head.className}`} ref={head.ref}>
-          <p className="testimonials__eyebrow">Member voices</p>
+          <p className="testimonials__eyebrow">Google reviews</p>
           <h2 id="testimonials-heading" className="testimonials__title">
             What our members say
           </h2>
           <p className="testimonials__lead">
-            Teams across Al-Khobar share what it&apos;s like to grow their business from Efficiency Center.
+            Real feedback from teams who work from Efficiency Center on the Al-Khobar Corniche.
           </p>
         </div>
 
@@ -114,6 +114,12 @@ export default function Testimonials() {
             ))}
           </div>
         </div>
+
+        <p className="testimonials__source">
+          <a href={GOOGLE_MAPS_REVIEWS_URL} target="_blank" rel="noopener noreferrer">
+            Read all reviews on Google Maps
+          </a>
+        </p>
       </div>
     </section>
   );

@@ -985,6 +985,22 @@ ul {
   font-style: normal;
 }
 
+.testimonials__source {
+  margin-top: 1.75rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.testimonials__source a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.testimonials__source a:hover {
+  opacity: 0.85;
+}
+
 @media (max-width: 520px) {
   .testimonials__inner {
     padding-inline: 1.35rem;
