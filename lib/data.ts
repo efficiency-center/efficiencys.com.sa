@@ -18,7 +18,7 @@ export type StoryCard = {
 export const STORY_CARDS: StoryCard[] = [
   {
     featured: true,
-    src: "/assets/imgs/stories/story-stairs.png",
+    src: "/assets/imgs/stories/story-stairs.jpg",
     alt: "Team member on the stairs at Efficiency Center",
     headline: "Your hike to peak.",
     body: "Real moments from our spaces — where teams climb toward their next milestone, one step at a time.",

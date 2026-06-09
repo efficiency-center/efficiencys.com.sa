@@ -1,15 +1,46 @@
 "use client";
 
-import { STORY_FEATURED, STORY_GALLERY } from "@/lib/data";
+import { STORY_CARDS } from "@/lib/data";
 import { withBasePath } from "@/lib/paths";
 import { useReveal } from "@/hooks/useReveal";
+
+const MARQUEE_ITEMS = [...STORY_CARDS, ...STORY_CARDS];
+
+type PolaroidProps = {
+  src: string;
+  alt: string;
+  headline: string;
+  body: string;
+  hidden?: boolean;
+};
+
+function Polaroid({ src, alt, headline, body, hidden }: PolaroidProps) {
+  return (
+    <article className="spaces__polaroid" aria-hidden={hidden || undefined}>
+      <div className="spaces__polaroid-frame">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={withBasePath(src)}
+          alt={alt}
+          className="spaces__polaroid-photo"
+          loading="lazy"
+          draggable={false}
+        />
+        <div className="spaces__polaroid-caption">
+          <h3 className="spaces__polaroid-title">{headline}</h3>
+          <p className="spaces__polaroid-text">{body}</p>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function Spaces() {
   const header = useReveal({ stagger: true });
 
   return (
     <section className="section spaces" id="stories">
-      <div className="container">
+      <div className="spaces__inner container">
         <div className={`spaces__header ${header.className}`} ref={header.ref}>
           <h2 className="section-heading">Our Stories</h2>
           <p className="spaces__lead">
@@ -17,42 +48,24 @@ export default function Spaces() {
           </p>
         </div>
 
-        <div className="spaces__cards">
-          {STORY_FEATURED.map((card) => (
-            <article key={card.src} className="spaces__card spaces__card--featured">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={withBasePath(card.src)}
-                alt={card.alt}
-                className="spaces__card-media"
-                loading="lazy"
-              />
-              <div className="spaces__card-shade" aria-hidden="true" />
-              <div className="spaces__card-copy">
-                <h3 className="spaces__card-title">{card.headline}</h3>
-                <p className="spaces__card-text">{card.body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+        <div className="spaces__carousel">
+          <div className="spaces__fade spaces__fade--left" aria-hidden="true" />
+          <div className="spaces__fade spaces__fade--right" aria-hidden="true" />
 
-        <div className="spaces__gallery">
-          {STORY_GALLERY.map((card) => (
-            <article key={card.src} className="spaces__card spaces__card--compact">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={withBasePath(card.src)}
-                alt={card.alt}
-                className="spaces__card-media"
-                loading="lazy"
-              />
-              <div className="spaces__card-shade" aria-hidden="true" />
-              <div className="spaces__card-copy">
-                <h3 className="spaces__card-title">{card.headline}</h3>
-                <p className="spaces__card-text">{card.body}</p>
-              </div>
-            </article>
-          ))}
+          <div className="spaces__marquee" role="region" aria-label="Our Stories polaroid gallery">
+            <div className="spaces__track">
+              {MARQUEE_ITEMS.map((card, i) => (
+                <Polaroid
+                  key={`${card.src}-${i}`}
+                  src={card.src}
+                  alt={card.alt}
+                  headline={card.headline}
+                  body={card.body}
+                  hidden={i >= STORY_CARDS.length}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
