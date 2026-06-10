@@ -69,7 +69,6 @@ export default function Testimonials() {
     <section className="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
       <div className="testimonials__inner container">
         <div className={`testimonials__head ${head.className}`} ref={head.ref}>
-          <p className="testimonials__eyebrow">Google reviews</p>
           <h2 id="testimonials-heading" className="testimonials__title">
             What our members say
           </h2>

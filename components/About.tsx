@@ -10,7 +10,6 @@ export default function About() {
     <section className="about" id="about">
       <div className="about__statement">
         <div className={`container about__statement-inner ${statement.className}`} ref={statement.ref}>
-          <p className="about__eyebrow">About Efficiency Center</p>
           <h2 className="about__statement-title">
             A driving force for your business
           </h2>

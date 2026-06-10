@@ -28,7 +28,7 @@ export default function Hero() {
         <video
           ref={videoRef}
           className="hero__img"
-          src={withBasePath("/assets/video/office.mp4")}
+          src={withBasePath("/assets/video/hero.mp4")}
           autoPlay
           muted
           loop

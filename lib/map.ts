@@ -1,5 +1,5 @@
 /** Free vector tiles — no API key (https://openfreemap.org) */
-export const MAP_STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
+export const MAP_STYLE_URL = "https://tiles.openfreemap.org/styles/dark";
 
 export function add3DBuildings(map: import("maplibre-gl").Map) {
   if (map.getLayer("ec-3d-buildings")) return;
@@ -34,17 +34,12 @@ export function add3DBuildings(map: import("maplibre-gl").Map) {
           ["linear"],
           ["coalesce", ["get", "render_height"], ["get", "height"], 12],
           0,
-          "#e8eaed",
-          40,
-          "#d4d8de",
+          "#0f0f0f",
           80,
-          "#a8b4c4",
-          120,
-          "#5a7a94",
+          "#1e3a5f",
           200,
-          "#063443",
+          "#141414",
         ],
-        "fill-extrusion-opacity": 0.9,
         "fill-extrusion-height": [
           "coalesce",
           ["get", "render_height"],
@@ -57,6 +52,7 @@ export function add3DBuildings(map: import("maplibre-gl").Map) {
           ["get", "min_height"],
           0,
         ],
+        "fill-extrusion-opacity": 0.82,
       },
     },
     labelLayer?.id

@@ -115,10 +115,6 @@ export default function Events() {
     <section className="events" id="events">
       <div className="container">
         <div className={`events__head ${head.className}`} ref={head.ref}>
-          <p className="events__eyebrow">
-            <span className="events__eyebrow-dot" aria-hidden="true" />
-            Our Events
-          </p>
           <h2 className="events__title">Moments that bring the center to life.</h2>
         </div>
       </div>
