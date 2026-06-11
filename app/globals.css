@@ -186,19 +186,21 @@ ul {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: transparent !important;
-  backdrop-filter: none !important;
+  background: transparent;
   border-bottom: none;
   box-shadow: none;
   pointer-events: none;
-  transform: translateY(0);
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
 }
 
-.navbar.navbar--hidden {
-  transform: translateY(-100%);
+.navbar.navbar--hidden:not(.navbar--menu-open) {
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navbar:not(.navbar--hidden) {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .navbar a,
@@ -217,6 +219,20 @@ ul {
 }
 
 @media (min-width: 769px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    min-height: 4.5rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.35rem;
+    padding-inline: var(--navbar-edge-pad);
+    box-sizing: border-box;
+  }
+
+  .navbar__inner {
+    display: contents;
+  }
+
   .navbar__nav {
     position: static;
     inset: auto;
@@ -1807,14 +1823,15 @@ ul {
 
   .navbar__toggle {
     display: flex;
-    z-index: 1;
+    z-index: 1002;
+    position: relative;
     padding: 0.35rem;
     margin-inline-end: -0.35rem;
   }
 
   .navbar__logo {
     position: relative;
-    z-index: 1;
+    z-index: 1002;
     padding-inline: 0.25rem 0;
   }
 
@@ -1829,33 +1846,31 @@ ul {
 
   .navbar__nav {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1001;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 0;
-    margin-left: 0;
-    padding: 5.5rem clamp(1.35rem, 5vw, 2rem) clamp(2rem, 8vh, 3rem);
-    background: var(--bg);
-    border-top: none;
+    margin: 0;
+    padding: 2rem;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
     visibility: hidden;
-    transform: translateX(100%);
+    opacity: 0;
     pointer-events: none;
-    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0.45s;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
   }
 
   .navbar__nav.is-open {
     visibility: visible;
-    transform: translateX(0);
+    opacity: 1;
     pointer-events: auto;
-    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0s;
-  }
-
-  .navbar__nav.is-hidden:not(.is-open) {
-    transform: translateX(100%);
-    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0s 0s;
   }
 
   .navbar__links {
