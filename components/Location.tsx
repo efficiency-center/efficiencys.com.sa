@@ -53,7 +53,7 @@ export default function Location() {
               </svg>
             </a>
             <p className="location__hint">
-              Three branches across Saudi Arabia — switch locations above and explore each in 3D.
+              Al-Khobar and two Riyadh locations. Switch branches above to explore each one.
             </p>
           </div>
 

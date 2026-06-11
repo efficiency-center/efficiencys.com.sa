@@ -12,7 +12,7 @@ export const UNITS: Unit[] = [
   {
     slug: "private-offices",
     title: "Private Offices",
-    detail: "Fully furnished, move-in ready — designed for teams that need their own integrated headquarters.",
+    detail: "Fully furnished and move-in ready. Designed for teams that need their own integrated headquarters.",
     image: "/assets/imgs/services/furnished-offices-14.png",
     featured: true,
   },
@@ -26,20 +26,20 @@ export const UNITS: Unit[] = [
   {
     slug: "conference-room",
     title: "Conference Room",
-    detail: "Seats up to 35 — equipped for board meetings, presentations, and corporate events.",
-    image: "/assets/imgs/services/conference-room-5.png",
+    detail: "Seats up to 35. Equipped for board meetings, presentations, and corporate events.",
+    image: "/assets/imgs/services/conference.png",
   },
   {
     slug: "meeting-room",
     title: "Meeting Room",
-    detail: "Seats up to 7 — AV-ready for focused discussions and partner syncs.",
+    detail: "Seats up to 7. AV-ready for focused discussions and partner syncs.",
     image: "/assets/imgs/services/meeting-room-dsc.png",
   },
   {
     slug: "business-lounge",
     title: "Business Lounge",
     detail: "A refined space to host guests, network, and recharge between meetings.",
-    image: "/assets/imgs/services/business-lounge-dsc04416.png",
+    image: "/assets/imgs/services/business-lounge.jpeg",
   },
   {
     slug: "studio",
@@ -50,8 +50,8 @@ export const UNITS: Unit[] = [
   {
     slug: "balcony",
     title: "Balcony",
-    detail: "276 sqm open-air space overlooking the Gulf — events, celebrations, and networking.",
-    image: "/assets/imgs/services/special-location-building.png",
+    detail: "276 sqm open-air space overlooking the Gulf. Perfect for events, celebrations, and networking.",
+    image: "/assets/imgs/services/balcony.JPG",
   },
 ];
 

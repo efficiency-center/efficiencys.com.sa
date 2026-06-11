@@ -11,10 +11,10 @@ export default function About() {
       <div className="about__statement">
         <div className={`container about__statement-inner ${statement.className}`} ref={statement.ref}>
           <h2 className="about__statement-title">
-            A driving force for your business
+            More than a workspace
           </h2>
           <p className="about__statement-lead">
-            Fully equipped shared and private workspaces designed to meet your needs — whether you&apos;re a startup establishing its presence or a large company building an integrated headquarters. We go beyond coworking with workspace preparation, facility operations, and business support services that help you focus on growth.
+            Efficiency Center is where startups launch and established companies scale. You get a fully equipped office on the Al-Khobar Corniche, a reception team that handles your guests, meeting rooms when you need them, and a community of professionals around you. We also prepare and operate workspaces from scratch, and provide business support from accounting to HR. You focus on your business, we handle the rest.
           </p>
           <Link href="/contact" className="btn btn--solid btn--pill about__statement-cta">
             Explore spaces

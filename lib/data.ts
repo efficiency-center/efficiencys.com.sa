@@ -17,53 +17,72 @@ export type StoryCard = {
 
 export const STORY_CARDS: StoryCard[] = [
   {
-    featured: true,
     src: "/assets/imgs/stories/story-stairs.jpg",
-    alt: "Team member on the stairs at Efficiency Center",
-    headline: "Your hike to peak.",
-    body: "Real moments from our spaces — where teams climb toward their next milestone, one step at a time.",
+    alt: "Walking up the stairs at Efficiency Center",
+    headline: "morning commute",
+    body: "",
   },
   {
-    featured: true,
-    src: "/assets/imgs/stories/story-building.png",
-    alt: "Efficiency Center building exterior",
-    headline: "Built for how you work.",
-    body: "Fully serviced offices and lounges at Corniche Park — designed for focus, collaboration, and growth.",
+    src: "/assets/imgs/stories/drinking-coffee.png",
+    alt: "Drinking coffee at the center",
+    headline: "first cup of the day",
+    body: "",
+  },
+  {
+    src: "/assets/imgs/stories/office-with-a-view.png",
+    alt: "Office desk overlooking the city",
+    headline: "my office today",
+    body: "",
   },
   {
     src: "/assets/imgs/stories/story-bar.png",
-    alt: "High-top lounge at Efficiency Center",
-    headline: "Coffee chats count.",
-    body: "The lounge is where ideas meet before the meeting starts.",
+    alt: "Lounge area at Efficiency Center",
+    headline: "quick catch up",
+    body: "",
   },
   {
-    src: "/assets/imgs/stories/story-marble-office.png",
-    alt: "Glass office with marble desk",
-    headline: "Private offices.",
-    body: "Turn-key spaces with premium finishes and room to think.",
+    src: "/assets/imgs/stories/work-in-a-shared-space.png",
+    alt: "Working in a shared workspace",
+    headline: "deep work mode",
+    body: "",
   },
   {
-    src: "/assets/imgs/stories/story-creative.png",
-    alt: "Creative desk with monitor",
-    headline: "Creative desks.",
-    body: "Open layouts with views and the tools your team needs.",
+    src: "/assets/imgs/stories/setting-in-the-businessloung.png",
+    alt: "Sitting in the business lounge",
+    headline: "between meetings",
+    body: "",
   },
   {
-    src: "/assets/imgs/stories/story-focus.png",
-    alt: "Minimal desk setup from above",
-    headline: "Deep focus.",
-    body: "Quiet corners for work that needs your full attention.",
+    src: "/assets/imgs/stories/brainstorm-together.png",
+    alt: "Team brainstorming together",
+    headline: "planning Q3",
+    body: "",
   },
   {
-    src: "/assets/imgs/stories/story-desk-detail.png",
-    alt: "Desk detail with plant",
-    headline: "Details matter.",
-    body: "Plants, light, and calm — the small things that shape the day.",
+    src: "/assets/imgs/stories/watching0the-view.png",
+    alt: "Watching the view from the center",
+    headline: "the view never gets old",
+    body: "",
+  },
+  {
+    src: "/assets/imgs/stories/take-a-break.png",
+    alt: "Taking a break with a view",
+    headline: "5 min break",
+    body: "",
+  },
+  {
+    src: "/assets/imgs/stories/story-building.png",
+    alt: "Efficiency Center building exterior",
+    headline: "the building",
+    body: "",
+  },
+  {
+    src: "/assets/imgs/stories/coffee.png",
+    alt: "Coffee moment",
+    headline: "fuel",
+    body: "",
   },
 ];
-
-export const STORY_FEATURED = STORY_CARDS.filter((card) => card.featured);
-export const STORY_GALLERY = STORY_CARDS.filter((card) => !card.featured);
 
 export type PartnerLogo = {
   file: string;
@@ -98,7 +117,7 @@ export const FAQ_ITEMS = [
   {
     question: "What types of workspaces do you offer?",
     answer:
-      "Private enclosed offices, open shared workspaces, a conference room seating 35, a 7-person meeting room, a business lounge, sound and photography studios, a balcony event space (276 sqm), and specialized incubator environments — all fully serviced.",
+      "Private enclosed offices, open shared workspaces, a conference room seating 35, a 7-person meeting room, a business lounge, sound and photography studios, a balcony event space (276 sqm), and specialized incubator environments, all fully serviced.",
     defaultOpen: true,
   },
   {
@@ -110,7 +129,7 @@ export const FAQ_ITEMS = [
   {
     question: "Where are you located?",
     answer:
-      "Three branches: Efficiency Center — Al-Khobar at 6919 Prince Turki ST, Corniche Park (overlooking the Arabian Gulf and Khobar Tower), plus two Riyadh locations — 1st Branch and 2nd Branch on Abi Bakr As Siddiq Rd, Al Mursalat. All are near restaurants, cafés, and key business districts.",
+      "Three branches: Efficiency Center Al-Khobar at 6919 Prince Turki ST, Corniche Park (overlooking the Arabian Gulf and Khobar Tower), plus two Riyadh locations: 1st Branch and 2nd Branch on Abi Bakr As Siddiq Rd, Al Mursalat. All are near restaurants, cafes, and key business districts.",
     defaultOpen: false,
   },
   {
@@ -122,7 +141,7 @@ export const FAQ_ITEMS = [
   {
     question: "How does this align with Vision 2030?",
     answer:
-      "Our vision is aligned with Saudi Vision 2030 — we aspire to shape the Kingdom's future by delivering efficient workspaces for local and international sectors, contributing to progress, innovation, and economic growth.",
+      "Our vision is aligned with Saudi Vision 2030. We aspire to shape the Kingdom's future by delivering efficient workspaces for local and international sectors, contributing to progress, innovation, and economic growth.",
     defaultOpen: false,
   },
   {

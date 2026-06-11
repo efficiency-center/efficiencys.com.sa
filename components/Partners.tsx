@@ -18,6 +18,7 @@ function PartnerLogoItem({ partner }: { partner: PartnerLogo }) {
           alt={`${partner.name} logo`}
           width={120}
           height={80}
+          loading="lazy"
           className={partner.color ? "partners__logo-img--color" : undefined}
           onError={() => setPlaceholder(true)}
           draggable={false}
@@ -38,9 +39,9 @@ export default function Partners() {
     <section className="section partners" id="partners">
       <div className="container">
         <div className={`partners__intro ${intro.className}`} ref={intro.ref}>
-          <h2 className="section-heading">Success partners</h2>
+          <h2 className="section-heading">Our clients</h2>
           <p className="partners__subtext">
-            Every member gets exclusive offers from our network of success partners — perks designed to add real value to your business from day one.
+            Businesses of all sizes choose Efficiency Center as their workspace. Here are some of the companies that work from our branches.
           </p>
         </div>
       </div>

@@ -15,7 +15,7 @@ export default function Services() {
     <section className="services" id="services">
       <div className={`services__intro-block ${intro.className}`} ref={intro.ref}>
         <div className="container services__intro-inner">
-          <h2 className="services__title">Four pillars, one efficient center</h2>
+          <h2 className="services__title">Everything your business needs under one roof</h2>
         </div>
       </div>
 
@@ -54,9 +54,6 @@ export default function Services() {
           <div className="services__units-top">
             <div className="services__units-head">
               <h2 className="services__title services__title--sm">Spaces designed for every need</h2>
-              <p className="services__units-lead">
-                Private offices, shared desks, meeting rooms, and specialty spaces — fully furnished and ready when you are.
-              </p>
             </div>
             <div className="services__units-cta">
               <Link href="/contact" className="btn btn--solid btn--pill">

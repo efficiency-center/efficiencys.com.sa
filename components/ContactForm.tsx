@@ -33,7 +33,7 @@ export default function ContactForm() {
 
       {submitted ? (
         <p className="contact-form__success" role="status">
-          Thank you — our team will contact you shortly.
+          Thank you! Our team will contact you shortly.
         </p>
       ) : (
         <form className="contact-form__fields" onSubmit={onSubmit} noValidate>

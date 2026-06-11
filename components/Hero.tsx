@@ -33,7 +33,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster={withBasePath("/assets/imgs/services/furnished-offices.png")}
           aria-label="Efficiency Center hero background video"
         />
@@ -42,7 +42,7 @@ export default function Hero() {
       <div className="hero__content">
         <h1 className="hero__title">Where Your Business Echoes</h1>
         <p className="hero__subtitle">
-          Fully-serviced workspaces designed to accelerate your business — coworking, private offices, and complete business solutions in Al-Khobar and Riyadh.
+          Three locations across Saudi Arabia. Private offices overlooking the Corniche, coworking spaces that connect you with the right people, and a team that handles the rest.
         </p>
         <Link href="/contact" className="btn btn--outline hero__cta">
           Contact Us

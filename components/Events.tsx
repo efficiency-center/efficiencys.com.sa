@@ -5,7 +5,7 @@ import { EVENTS } from "@/lib/events";
 import { withBasePath } from "@/lib/paths";
 import { useReveal } from "@/hooks/useReveal";
 
-const COPIES = 5;
+const COPIES = 3;
 const ITEMS = Array.from({ length: COPIES }, () => EVENTS).flat();
 
 export default function Events() {
@@ -52,7 +52,7 @@ export default function Events() {
       const progress = Math.max(0, 1 - dist / maxDist);
 
       const scale = 0.65 + progress * 0.35;
-      const opacity = 0.75 + progress * 0.25;
+      const opacity = 1;
       const rotateY = (center - cardCenter) / maxDist * 8;
 
       card.style.transform = `perspective(1200px) scale(${scale}) rotateY(${rotateY}deg)`;
@@ -148,6 +148,7 @@ export default function Events() {
                   loop
                   playsInline
                   autoPlay
+                  preload="none"
                   draggable={false}
                 />
               ) : (
@@ -157,6 +158,7 @@ export default function Events() {
                   alt={event.title}
                   className="events__card-img"
                   loading="lazy"
+                  decoding="async"
                   draggable={false}
                 />
               )}

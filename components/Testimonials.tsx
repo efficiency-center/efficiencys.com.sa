@@ -5,7 +5,7 @@ import PixelAvatar from "@/components/PixelAvatar";
 import { GOOGLE_MAPS_REVIEWS_URL, TESTIMONIALS } from "@/lib/testimonials";
 import { useReveal } from "@/hooks/useReveal";
 
-const COPIES = 5;
+const COPIES = 3;
 const ITEMS = Array.from({ length: COPIES }, () => TESTIMONIALS).flat();
 
 export default function Testimonials() {
