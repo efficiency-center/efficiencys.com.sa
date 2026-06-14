@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { SERVICE_PILLARS } from "@/lib/profile";
 import { withBasePath } from "@/lib/paths";
 import { UNITS, getUnitImage } from "@/lib/units";
@@ -56,9 +55,14 @@ export default function Services() {
               <h2 className="services__title services__title--sm">Spaces designed for every need</h2>
             </div>
             <div className="services__units-cta">
-              <Link href="/contact" className="btn btn--solid btn--pill">
+              <a
+                href="https://wa.me/966581115550?text=Hello%20Efficiency%20Center%2C%20I%20would%20like%20to%20book%20a%20tour.%0A%0A%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D8%B1%D9%83%D8%B2%20%D8%A7%D9%84%D9%83%D9%81%D8%A7%D8%A1%D8%A9%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%88%D9%84%D8%A9."
+                className="btn btn--solid btn--pill"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Book a tour
-              </Link>
+              </a>
             </div>
           </div>
 

@@ -1266,7 +1266,7 @@ ul {
   left: 0;
   width: 220px;
   cursor: grab;
-  touch-action: none;
+  touch-action: auto;
   user-select: none;
   transition: box-shadow 0.3s ease;
 }

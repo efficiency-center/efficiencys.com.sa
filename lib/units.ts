@@ -27,7 +27,7 @@ export const UNITS: Unit[] = [
     slug: "conference-room",
     title: "Conference Room",
     detail: "Seats up to 35. Equipped for board meetings, presentations, and corporate events.",
-    image: "/assets/imgs/services/conference.png",
+    image: "/assets/imgs/services/conference.jpg",
   },
   {
     slug: "meeting-room",
