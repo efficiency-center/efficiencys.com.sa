@@ -15,6 +15,7 @@ export default function Events() {
   const startX = useRef(0);
   const scrollStart = useRef(0);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -24,22 +25,29 @@ export default function Events() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const update = () => setIsMobile(mq.matches);
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
   const loopScroll = useCallback(() => {
     const track = trackRef.current;
-    if (!track) return;
+    if (!track || isMobile) return;
     const oneSet = track.scrollWidth / COPIES;
-    const mid = oneSet * Math.floor(COPIES / 2);
 
     if (track.scrollLeft < oneSet) {
       track.scrollLeft += oneSet;
     } else if (track.scrollLeft > oneSet * (COPIES - 1)) {
       track.scrollLeft -= oneSet;
     }
-  }, []);
+  }, [isMobile]);
 
   const updateScale = useCallback(() => {
     const track = trackRef.current;
-    if (!track || reducedMotion) return;
+    if (!track || reducedMotion || isMobile) return;
 
     const cards = track.querySelectorAll<HTMLElement>(".events__card");
     const center = track.getBoundingClientRect().left + track.clientWidth / 2;
@@ -58,7 +66,7 @@ export default function Events() {
       card.style.transform = `perspective(1200px) scale(${scale}) rotateY(${rotateY}deg)`;
       card.style.opacity = `${opacity}`;
     });
-  }, [reducedMotion]);
+  }, [reducedMotion, isMobile]);
 
   const onScroll = useCallback(() => {
     loopScroll();
@@ -68,15 +76,24 @@ export default function Events() {
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const oneSet = track.scrollWidth / COPIES;
     const cards = track.querySelectorAll<HTMLElement>(".events__card");
+
+    if (isMobile) {
+      cards.forEach((card) => {
+        card.style.transform = "";
+        card.style.opacity = "";
+      });
+      track.scrollLeft = 0;
+      return;
+    }
+
+    const oneSet = track.scrollWidth / COPIES;
     const cardWidth = cards[0]?.offsetWidth ?? 400;
-    const gap = 80; // 5rem gap
-    // Center on index 1 (Keeta V) of the middle copy
+    const gap = 80;
     const keetaOffset = (cardWidth + gap) * 1;
     track.scrollLeft = oneSet * Math.floor(COPIES / 2) + keetaOffset - (track.clientWidth / 2 - cardWidth / 2);
     updateScale();
-  }, [updateScale]);
+  }, [updateScale, isMobile]);
 
   useEffect(() => {
     window.addEventListener("resize", updateScale);
