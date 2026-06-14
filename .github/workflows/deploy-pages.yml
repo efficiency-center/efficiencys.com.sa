@@ -31,7 +31,6 @@ jobs:
         run: npm run build
         env:
           STATIC_EXPORT: "true"
-          NEXT_PUBLIC_BASE_PATH: /Efficiency-Center-Website
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

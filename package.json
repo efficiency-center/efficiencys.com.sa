@@ -6,7 +6,7 @@
     "dev": "next dev",
     "dev:clean": "rm -rf .next && next dev",
     "build": "next build",
-    "build:pages": "STATIC_EXPORT=true NEXT_PUBLIC_BASE_PATH=/Efficiency-Center-Website next build",
+    "build:pages": "STATIC_EXPORT=true next build",
     "start": "next start",
     "lint": "next lint"
   },
