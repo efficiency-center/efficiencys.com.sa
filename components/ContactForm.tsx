@@ -4,18 +4,56 @@ import { FormEvent, useState } from "react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
-    setSubmitted(true);
-    form.reset();
+
+    setLoading(true);
+    setError("");
+
+    const data = new FormData(form);
+    const body = {
+      email: data.get("email"),
+      phone: data.get("phone"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) {
+        const json = await res.json();
+        throw new Error(json.error || "Something went wrong.");
+      }
+
+      window.gtag?.("event", "conversion", {
+        send_to: "AW-328814558/TLkICKrI2dwDEN6f5ZwB",
+      });
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -70,14 +108,18 @@ export default function ContactForm() {
             />
           </label>
 
+          {error && (
+            <p className="contact-form__error" role="alert">{error}</p>
+          )}
+
           <p className="contact-form__privacy">
             By submitting this form you agree to our{" "}
-            <Link href="/">Privacy Policy</Link>
+            <Link href="/privacy">Privacy Policy</Link>
           </p>
 
-          <button type="submit" className="contact-form__submit">
-            Get Started
-            <span aria-hidden="true">→</span>
+          <button type="submit" className="contact-form__submit" disabled={loading}>
+            {loading ? "Sending..." : "Get Started"}
+            {!loading && <span aria-hidden="true">→</span>}
           </button>
         </form>
       )}

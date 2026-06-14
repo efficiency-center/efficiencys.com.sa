@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat, Space_Grotesk } from "next/font/google";
 import { withBasePath } from "@/lib/paths";
+import TrackingScripts from "@/components/TrackingScripts";
+import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -16,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const siteUrl = "https://6degrees.github.io/Efficiency-Center-Website";
+const siteUrl = "https://efficiencys.com.sa";
 const ogImage = `${siteUrl}/assets/imgs/ec-og.png`;
 
 export const metadata: Metadata = {
@@ -61,7 +63,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${montserrat.variable} ${spaceGrotesk.variable}`}>
-      <body>{children}</body>
+      <head>
+        <meta name="google-site-verification" content="wEcjbvecZh1S6wMPKxOL8WbQvZdgHzSurbs-K6xkwbE" />
+        <meta name="google-site-verification" content="cGiWyVb162e7QzFUhrFwYqq-wx93AesxF0upuqfQkAE" />
+      </head>
+      <body>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WPSRGSBK"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=24080573631527524&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        {children}
+        <TrackingScripts />
+        <CookieConsent />
+      </body>
     </html>
   );
 }
