@@ -32,6 +32,6 @@ export const SERVICE_PILLARS: ServicePillar[] = [
     title: "Business Challenge Solutions",
     summary:
       "Technical support, accounting, HR, legal, secretarial services, training, and events. Whatever challenge slows your business down, we have a service that keeps it moving.",
-    image: "/assets/imgs/services/04.jpg",
+    image: "/assets/imgs/stories/brainstorm-together.jpg",
   },
 ];
