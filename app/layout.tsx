@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   description:
     "Fully-serviced workspaces in Al-Khobar and Riyadh. Coworking, private offices, meeting rooms, and complete business solutions. Where your business echoes.",
   metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: siteUrl,
+  },
   icons: {
     icon: withBasePath("/assets/imgs/logo.png"),
     apple: withBasePath("/assets/imgs/logo.png"),
