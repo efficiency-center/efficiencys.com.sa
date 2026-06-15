@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://efficiencys.com.sa/sitemap.xml",
+    sitemap: "https://www.efficiencys.com.sa/sitemap.xml",
   };
 }

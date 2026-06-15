@@ -10,7 +10,7 @@ import Location from "@/components/Location";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
-const siteUrl = "https://efficiencys.com.sa";
+const siteUrl = "https://www.efficiencys.com.sa";
 
 const jsonLd = {
   "@context": "https://schema.org",

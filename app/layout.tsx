@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const siteUrl = "https://efficiencys.com.sa";
+const siteUrl = "https://www.efficiencys.com.sa";
 const ogImage = `${siteUrl}/assets/imgs/ec-og.png`;
 
 export const metadata: Metadata = {
