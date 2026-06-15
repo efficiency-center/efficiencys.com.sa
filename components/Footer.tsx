@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CONTACT, OFFICES } from "@/lib/constants";
-import { withBasePath } from "@/lib/paths";
 import Logo from "@/components/Logo";
 
 const year = new Date().getFullYear();
@@ -15,6 +14,7 @@ export default function Footer() {
               <Logo variant="footer" />
             </Link>
             <p className="footer__tagline">Where your business echoes.</p>
+            <p className="footer__subsidiary">A subsidiary of Naqsh Holding.</p>
           </div>
 
           <div className="footer__col">
@@ -30,7 +30,6 @@ export default function Footer() {
           <div className="footer__col">
             <h3 className="footer__col-title">Information</h3>
             <ul className="footer__col-links">
-              <li><a href={withBasePath("/assets/docs/our-profile.pdf")} download>Company Profile</a></li>
               <li><a href="/privacy">Privacy Policy</a></li>
               <li><a href="/terms">Terms &amp; Conditions</a></li>
             </ul>

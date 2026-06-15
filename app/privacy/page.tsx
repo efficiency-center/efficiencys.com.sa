@@ -41,14 +41,14 @@ export default function PrivacyPage() {
 
           <h2>5. Your Rights</h2>
           <p>
-            You have the right to access, correct, or delete your personal information. To exercise these rights, contact us at info@efficiencycenter.com or call +966 58 111 5550.
+            You have the right to access, correct, or delete your personal information. To exercise these rights, contact us at contact@efficiencys.com.sa or call +966 58 111 5550.
           </p>
 
           <h2>6. Contact</h2>
           <p>
             For questions about this privacy policy, contact us at:<br />
             Efficiency Center, 6919 Prince Turki ST, Corniche Park, Al-Khobar, Saudi Arabia<br />
-            Email: info@efficiencycenter.com<br />
+            Email: contact@efficiencys.com.sa<br />
             Phone: +966 58 111 5550
           </p>
         </div>

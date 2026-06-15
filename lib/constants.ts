@@ -14,7 +14,7 @@ export type OfficeLocation = {
 
 export const CONTACT = {
   phone: "+966 58 111 5550",
-  email: "info@efficiencycenter.com",
+  email: "contact@efficiencys.com.sa",
 } as const;
 
 export const OFFICES: OfficeLocation[] = [

@@ -15,7 +15,7 @@ export default function About() {
           <p className="about__statement-lead">
             Offices, coworking, meeting rooms, and full business support across three locations in Al-Khobar and Riyadh. You focus on your business, we handle the rest.
           </p>
-          <a href="#services" className="btn btn--solid btn--pill about__statement-cta">
+          <a href="#spaces" className="btn btn--solid btn--pill about__statement-cta">
             Explore spaces
           </a>
         </div>

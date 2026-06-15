@@ -46,14 +46,14 @@ export default function TermsPage() {
 
           <h2>6. Intellectual Property</h2>
           <p>
-            All content on this website, including text, images, logos, and design, is the property of Efficiency Point Co. and may not be reproduced without written permission.
+            All content on this website, including text, images, logos, and design, is the property of Efficiency Center Co. and may not be reproduced without written permission.
           </p>
 
           <h2>7. Contact</h2>
           <p>
             For questions about these terms, contact us at:<br />
             Efficiency Center, 6919 Prince Turki ST, Corniche Park, Al-Khobar, Saudi Arabia<br />
-            Email: info@efficiencycenter.com<br />
+            Email: contact@efficiencys.com.sa<br />
             Phone: +966 58 111 5550
           </p>
         </div>

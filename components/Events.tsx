@@ -38,10 +38,16 @@ export default function Events() {
     if (!track || isMobile) return;
     const oneSet = track.scrollWidth / COPIES;
 
-    if (track.scrollLeft < oneSet) {
-      track.scrollLeft += oneSet;
-    } else if (track.scrollLeft > oneSet * (COPIES - 1)) {
-      track.scrollLeft -= oneSet;
+    if (track.scrollLeft < oneSet || track.scrollLeft > oneSet * (COPIES - 1)) {
+      track.style.scrollSnapType = "none";
+      if (track.scrollLeft < oneSet) {
+        track.scrollLeft += oneSet;
+      } else {
+        track.scrollLeft -= oneSet;
+      }
+      requestAnimationFrame(() => {
+        track.style.scrollSnapType = "";
+      });
     }
   }, [isMobile]);
 
