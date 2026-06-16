@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Montserrat, Space_Grotesk } from "next/font/google";
-import { withBasePath } from "@/lib/paths";
 import TrackingScripts from "@/components/TrackingScripts";
 import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
@@ -75,8 +74,8 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   icons: {
-    icon: withBasePath("/assets/imgs/logo.png"),
-    apple: withBasePath("/assets/imgs/logo.png"),
+    icon: "/favicon.ico",
+    apple: "/icon.png",
   },
   openGraph: {
     title: "Efficiency Center | Where Your Business Echoes",
